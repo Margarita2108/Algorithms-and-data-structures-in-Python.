@@ -5,8 +5,7 @@ import string
 
 def place_letters():
     a = int(input('Введите номер буквы (до 24): '))
-    letters = string.ascii_lowercase
-    return print('Под номером ', a, ' буква ', string.ascii_lowercase[a-1])
+    print('Под номером ', a, ' буква ', string.ascii_lowercase[a-1])
 
 
 def main():
