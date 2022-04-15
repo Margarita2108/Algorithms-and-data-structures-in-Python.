@@ -1,23 +1,21 @@
-#  Пользователь вводит две буквы.
-#  Определить, на каких местах алфавита они стоят и сколько между ними находится букв.
-
-import string
-import math
+# Вывести на экран коды и символы таблицы ASCII,
+# начиная с символа под номером 32 и заканчивая 127-м включительно.
+# Вывод выполнить в табличной форме: по десять пар "код-символ" в каждой строке.
 
 
-def letters_place():
-    a = input('Введите первую букву: ')
-    b = input('Введите вторую окончания: ')
-    letters = string.ascii_lowercase
-    index_a = letters.index(a)
-    index_b = letters.index(b)
-    return print(a, ' стоит на ', index_a + 1, 'месте.\n', b, ' стоит на ', index_b + 1, 'месте.\n'
-                'Между ними ', int(math.fabs(index_b-index_a)), 'буквы')
+def ascii_tabl(column):
+    counter = 0
+    for numb in list(range(32, 128)):
+        counter += 1
+        if counter % column == 0:
+            print(f"{numb:<3} - ", chr(numb), '     ')
+        else:
+            print(f"{numb:<3} - ", chr(numb), '     ', end='')
 
 
 def main():
     try:
-        letters_place()
+        ascii_tabl(10)
     except ValueError:
         print('Неверный ввод')
 

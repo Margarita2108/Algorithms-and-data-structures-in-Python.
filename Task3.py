@@ -1,26 +1,24 @@
-# По введенным пользователем координатам двух точек вывести уравнение прямой вида y=kx+b,
-# проходящей через эти точки.
+# Сформировать из введенного числа обратное по порядку входящих в него
+# цифр и вывести на экран. Например, если введено число 3486,
+# то надо вывести число 6843.
 
-
-def line_coopd():
-    x1 = float(input('Введите х первой точки: '))
-    y1 = float(input('Введите у первой точки: '))
-    x2 = float(input('Введите х второй точки: '))
-    y2 = float(input('Введите у второй точки: '))
-
-    k = (y1 - y2)/(x1 - x2)
-    b = y1 - k * x1
-
-    print('Формула прямой у=', k, 'x+', b)
+def mirror(number):
+    numb_dec = 0
+    while number > 0:
+        remainder = number % 10
+        number = number // 10
+        numb_dec = numb_dec * 10
+        numb_dec = numb_dec + remainder
+    return print(numb_dec)
 
 
 def main():
     try:
-        line_coopd()
+        number = int(input('Введите целое число: '))
+        mirror(number)
     except ValueError:
         print('Неверный ввод')
 
 
 if __name__ == '__main__':
     main()
-

@@ -1,17 +1,25 @@
-# Определить, является ли год, который ввел пользователем, високосным или невисокосным.
+# Посчитать, сколько раз встречается определенная цифра
+# в введенной последовательности чисел.
+# Количество вводимых чисел и цифра, которую необходимо посчитать,
+# задаются вводом с клавиатуры.
 
 
-def leap_year(year):
-    if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
-        return print('Год высокосный')
-    else:
-        return print('Год не высокосный')
+def check_num(numbers, number):
+    counter = 0
+    for numb in range(1, numbers + 1):
+        num_input = int(input('Введите ' + str(numb) + ' число: '))
+        list_num = [int(_) for _ in num_input]
+        for num in list_num:
+            if num == number:
+                counter += 1
+    print('Число ', number, 'встретилось ', counter, 'раз')
 
 
 def main():
     try:
-        year = int(input('Введите год: '))
-        leap_year(year)
+        number_list = int(input('Введите количество чисел: '))
+        number_user = int(input('Введите цифру поиска: '))
+        check_num(number_list, number_user)
     except ValueError:
         print('Неверный ввод')
 

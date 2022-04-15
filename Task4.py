@@ -1,47 +1,21 @@
-# Написать программу, которая генерирует в указанных пользователем границах:
-# случайное целое число;
-# случайное вещественное число;
-# случайный символ.
+# Найти сумму n элементов следующего ряда чисел: 1 -0.5 0.25 -0.125 ...
+# Количество элементов (n) вводится с клавиатуры.
 
-
-import random
-import string
-
-
-def random_1():
-    a = int(input('Введите ограничение min: '))
-    b = int(input('Введите ограничение max: '))
-    return print('Случайное целое число: ', random.randint(a, b))
-
-
-def random_2():
-    a = float(input('Введите ограничение min: '))
-    b = float(input('Введите ограничение max: '))
-    return print('Случайное вещественное число: ', random.random()*(b - a) + a)
-
-
-def random_3():
-    a = input('Введите начальную букву: ')
-    b = input('Введите букву окончания: ')
-    letters = string.ascii_lowercase
-    index_a = letters.index(a)
-    index_b = letters.index(b)
-    return print('Случайная буква: ', letters[random.randint(index_a, index_b)])
+def sum_elem(numb):
+    counter = 0
+    sum_el = 1
+    sum_all = 0
+    while counter < numb:
+        sum_all = sum_all + sum_el
+        sum_el = -(sum_el/2)
+        counter += 1
+    return print(sum_all)
 
 
 def main():
     try:
-        type_rand = input('Введите:\n1 - для генерации целого числа\n'
-                          '2 - для генерации вещественного числа\n'
-                          '3 - для генерации буквы\n')
-        if type_rand == '1':
-            return random_1()
-        elif type_rand == '2':
-            return random_2()
-        elif type_rand == '3':
-            return random_3()
-        else:
-            print('Неверный выбор')
+        number = int(input('Введите количество элементов: '))
+        sum_elem(number)
     except ValueError:
         print('Неверный ввод')
 
